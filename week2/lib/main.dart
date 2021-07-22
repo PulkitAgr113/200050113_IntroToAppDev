@@ -83,10 +83,10 @@ class _QuizState extends State<Quiz> {
                   Text(
                     '$ques',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w400),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   CheckboxListTile(
                     value: markedA,
@@ -236,6 +236,17 @@ class _QuizState extends State<Quiz> {
                     checkColor: Colors.blue,
                     tileColor: Colors.white,
                   ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for(var item in _results) item,
+                      ],
+                    ),
+                  ),
                 ]
               ),
             ),
@@ -275,15 +286,15 @@ class _QuizState extends State<Quiz> {
                   Text(
                     '$ques',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w400),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   CheckboxListTile(
                     value: markedA,
                     onChanged: (bool? newMark) {
-                      if (FriendsAnswers(hpIndex).getAnswer() == 1) {
+                      if (FriendsAnswers(friendsIndex).getAnswer() == 1) {
                         score = score + 1;
                         _results.add(Icon(Icons.thumb_up, color: Colors.greenAccent));
                       }
@@ -320,7 +331,7 @@ class _QuizState extends State<Quiz> {
                   CheckboxListTile(
                     value: markedB,
                     onChanged: (bool? newMark) {
-                      if (FriendsAnswers(hpIndex).getAnswer() == 2) {
+                      if (FriendsAnswers(friendsIndex).getAnswer() == 2) {
                         score = score + 1;
                         _results.add(Icon(Icons.thumb_up, color: Colors.greenAccent));
                       }
@@ -357,7 +368,7 @@ class _QuizState extends State<Quiz> {
                   CheckboxListTile(
                     value: markedC,
                     onChanged: (bool? newMark) {
-                      if (FriendsAnswers(hpIndex).getAnswer() == 3) {
+                      if (FriendsAnswers(friendsIndex).getAnswer() == 3) {
                         score = score + 1;
                         _results.add(Icon(Icons.thumb_up, color: Colors.greenAccent));
                       }
@@ -394,7 +405,7 @@ class _QuizState extends State<Quiz> {
                   CheckboxListTile(
                     value: markedD,
                     onChanged: (bool? newMark) {
-                      if (FriendsAnswers(hpIndex).getAnswer() == 4) {
+                      if (FriendsAnswers(friendsIndex).getAnswer() == 4) {
                         score = score + 1;
                         _results.add(Icon(Icons.thumb_up, color: Colors.greenAccent));
                       }
@@ -427,6 +438,17 @@ class _QuizState extends State<Quiz> {
                     activeColor: Colors.white,
                     checkColor: Colors.blue,
                     tileColor: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 50
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for(var item in _results) item,
+                      ],
+                    ),
                   ),
                 ]
               ),
@@ -469,12 +491,12 @@ class _QuizState extends State<Quiz> {
                   Text(
                     'Congratulations on completing the quiz, Potterhead!',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500, color: Colors.deepPurple),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: Colors.deepPurple),
                   ),
                   Text(
                     'You scored ' + percent.toString() +'%.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w400, color: Colors.deepPurpleAccent),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400, color: Colors.deepPurpleAccent),
                   ),
                   SizedBox(
                     height: 40,
@@ -482,12 +504,12 @@ class _QuizState extends State<Quiz> {
                   Text(
                     'You can try more of our quizzes from the navigation bar at the bottom.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.w300, color: Colors.blueGrey),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: Colors.blueGrey),
                   ),
                   Text(
                     'If you wish to give this quiz again, then click the button below:',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.w300, color: Colors.blueGrey),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: Colors.blueGrey),
                   ),
                   SizedBox(
                     height: 10,
@@ -496,6 +518,7 @@ class _QuizState extends State<Quiz> {
                     onPressed: () {
                       setState(() {
                         result = false;
+                        _results = [];
                         ques = HPQuestions(0).getQuestion();
                         optionA = HPAnswers(0).getA();
                         optionB = HPAnswers(0).getB();
@@ -547,12 +570,12 @@ class _QuizState extends State<Quiz> {
                   Text(
                     'Congratulations on completing the quiz, Crapweasel!',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500, color: Colors.deepPurple),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500, color: Colors.deepPurple),
                   ),
                   Text(
                     'You scored ' + percent.toString() +'%.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.w400, color: Colors.deepPurpleAccent),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400, color: Colors.deepPurpleAccent),
                   ),
                   SizedBox(
                     height: 40,
@@ -560,12 +583,12 @@ class _QuizState extends State<Quiz> {
                   Text(
                     'You can try more of our quizzes from the navigation bar at the bottom.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.w300, color: Colors.blueGrey),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: Colors.blueGrey),
                   ),
                   Text(
                     'If you wish to give this quiz again, then click the button below:',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.w300, color: Colors.blueGrey),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: Colors.blueGrey),
                   ),
                   SizedBox(
                     height: 10,
@@ -574,6 +597,7 @@ class _QuizState extends State<Quiz> {
                     onPressed: () {
                       setState(() {
                         result = false;
+                        _results = [];
                         ques = FriendsQuestions(0).getQuestion();
                         optionA = FriendsAnswers(0).getA();
                         optionB = FriendsAnswers(0).getB();

@@ -29,7 +29,7 @@ class FriendsQuestions extends StatelessWidget {
     'What is the name of Rachel’s Sphynx cat?',
     'When Ross and Rachel were“on a break,”Ross slept with Chloe. Where does she work?',
     'Chandler’s mom had an interesting career and even more interesting love life. What’s her name?',
-    'Monica and Chandler met on Thanksgiving in 1987. She pursued her career as a chef because Chandler complimented her on which dish?',
+    'Monica pursued her career as a chef because Chandler complimented her on which dish?',
   ];
 
   FriendsQuestions(index) {
